@@ -7,7 +7,7 @@ cursor = connection.cursor()
 sql = """create table locations(
     ID integer primary key autoincrement,
     lat real,
-    ion real,
+    lon real,
     operator_reference text,
     country_reference text,
     postal_code text,
