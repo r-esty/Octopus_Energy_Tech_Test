@@ -1,4 +1,5 @@
 import sqlite3
+import json
 
 connection = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
 
@@ -30,3 +31,11 @@ cursor.execute( """create table if not exists connectors(
 
 connection.commit()
 connection.close()
+
+
+
+with open('data/integrated.json') as f:
+    locations = json.load(f)
+    print(locations)
+    
+    
