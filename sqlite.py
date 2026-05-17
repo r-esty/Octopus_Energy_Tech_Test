@@ -4,7 +4,7 @@ connection = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
 
 cursor = connection.cursor()
 
-sql = """create table locations(
+sql = """create table if not exists locations(
     ID integer primary key autoincrement,
     lat real,
     lon real,
@@ -21,7 +21,7 @@ connection = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
 
 cursor = connection.cursor()
 
-sql_1 = """create table eves(
+sql_1 = """create table if not exists eves(
     ID integer primary key autoincrement,
     physical_identifer text,
     status text
@@ -33,7 +33,7 @@ connection = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
 
 cursor = connection.cursor()
 
-sql_2 = """create table connectors(
+sql_2 = """create table if not exists connectors(
     ID integer primary key autoincrement,
 
     standard text,
