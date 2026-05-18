@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 
 def get_db():
-    conn = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
+    conn = sqlite3.connect("locations.db")
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -71,4 +71,5 @@ def get_location(id):
         "evses": evse_list
     })
 
-app.run()
+if __name__ == "__main__":
+    app.run()

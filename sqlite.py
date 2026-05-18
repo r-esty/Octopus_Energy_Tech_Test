@@ -1,7 +1,7 @@
 import sqlite3
 import json
 
-connection = sqlite3.connect("/home/romeo/Octopus_Tech_Test/locations.db")
+connection = sqlite3.connect("locations.db")
 cursor = connection.cursor()
 
 cursor.execute("""create table if not exists locations(
