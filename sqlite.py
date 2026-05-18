@@ -29,13 +29,35 @@ cursor.execute( """create table if not exists connectors(
     power integer)
     """)
 
-connection.commit()
-connection.close()
 
 
 
 with open('data/integrated.json') as f:
     locations = json.load(f)
-    print(locations)
+    #print(locations)
     
+
     
+
+    
+for location in locations:
+    
+    operator = str(location.get("operator") or "")
+    country = str(location.get("country") or "")
+    
+    cursor.execute(
+        "INSERT INTO locations (lat, lon, operator_reference, country_reference, postal_code) VALUES (?, ?, ?, ?, ?)",
+(
+            location["coordinates"]["latitude"],
+            location["coordinates"]["longitude"],
+            operator,
+            country,
+            location["postal_code"]
+        )
+    )
+    location_id = cursor.lastrowid
+
+
+connection.commit()
+connection.close()
+
